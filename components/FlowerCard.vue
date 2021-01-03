@@ -1,14 +1,21 @@
 <template>
   <div class="shop-item-box">
-    <div class="shop-item-image"></div>
+    <div
+      class="shop-item-image"
+      :style="{ backgroundImage: `url('${imageUrl}')` }"
+    ></div>
     <div class="shop-item-information">
-      <div class="text-common shop-item-title">{{ flowerTitle }}</div>
-      <flower-color-picker class="shop-item-color-dots"></flower-color-picker>
+      <div>
+        <div class="text-common shop-item-title">{{ title }}</div>
+        <flower-color-picker class="shop-item-color-dots"></flower-color-picker>
+      </div>
       <div class="shop-item-price-box">
         <div class="shop-item-price">
-          <div class="text-common original-price-box">{{ originalPrice }}</div>
+          <div v-if="originalPrice > 0" class="text-common original-price-box">
+            {{ originalPrice }}
+          </div>
           <div class="text-common real-price-box">
-            {{ realPrice }} <span class="text-common price-currency">р.</span>
+            {{ price }} <span class="text-common price-currency">р.</span>
           </div>
         </div>
         <add-to-cart-button
@@ -29,20 +36,11 @@
 </template>
 
 <style>
-@font-face {
-  font-family: 'Gilroy-Regular';
-  src: url(Gilroy-Regular.woff2);
-}
-
-body {
-  font-family: 'Gilroy-Regular';
-}
-
 .shop-item-box {
-  background-image: url('./Image.png');
   background-repeat: no-repeat;
   background-size: 100% auto;
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: column;
   border-radius: 20px;
   border-width: 0px;
   border-color: black;
@@ -60,13 +58,18 @@ body {
 }
 
 .shop-item-image {
-  width: 236px;
+  width: 224px;
   height: 200px;
   margin-bottom: 8px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .shop-item-information {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .shop-item-title {
@@ -97,10 +100,6 @@ body {
   font-size: 24px;
   line-height: 130%;
 }
-
-.price-currency {
-  font-size: 16px;
-}
 </style>
 
 <script>
@@ -115,11 +114,26 @@ export default Vue.extend({
     QuantityChanger,
     FlowerColorPicker,
   },
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+    price: {
+      type: Number,
+      required: true,
+    },
+    originalPrice: {
+      type: Number,
+      default: 0,
+    },
+    imageUrl: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {
-      flowerTitle: 'Роза',
-      originalPrice: 150,
-      realPrice: 1000,
       quantityValue: 0,
     }
   },

@@ -119,14 +119,6 @@
 </template>
 
 <style lang="scss">
-@font-face {
-  font-family: 'Gilroy-Regular';
-  src: url(Gilroy-Regular.woff2);
-}
-
-body {
-  font-family: 'Gilroy-Regular';
-}
 .quantity-changer {
   all: unset;
   display: grid;

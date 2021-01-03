@@ -20,13 +20,23 @@
         <div class="color-dot"></div>
       </div>
     </div>
-    <text-button v-if="!fitsInOneLine" @click="onShowAllColorsClicked()">
-      <div class="show-more-colors-btn-content">
-        {{ showAllColors ? 'скрыть все цвета' : 'показать все цвета' }}
-        <svg class="icon-arrow-down-btn" role="presentation">
+    <text-button
+      v-if="!fitsInOneLine"
+      class="show-all-colors-btn"
+      @click="onShowAllColorsClicked()"
+    >
+      {{ showAllColors ? 'скрыть все цвета' : 'показать все цвета' }}
+      <template v-slot:icon>
+        <svg
+          :class="{
+            'icon-arrow-down-btn': !showAllColors,
+            'icon-arrow-up-btn': showAllColors,
+          }"
+          role="presentation"
+        >
           <use xlink:href="#icon-arrow-down-btn" />
         </svg>
-      </div>
+      </template>
     </text-button>
   </div>
 </template>
@@ -39,25 +49,28 @@
   justify-content: space-between;
   row-gap: 2px;
 }
+.show-all-colors-btn {
+  margin-top: 9.5px;
+}
 
 .icon-arrow-down-btn {
   width: 24px;
   height: 24px;
+  display: block;
 }
 
-.show-more-colors-btn-content {
-  all: unset;
-  margin-top: 8px;
-  display: flex;
-  align-content: center;
-  align-items: center;
-  cursor: pointer;
+.icon-arrow-up-btn {
+  display: block;
+  width: 24px;
+  height: 24px;
+  transform: rotate(180deg);
 }
 
 .color-dot-box {
   width: 32px;
   height: 32px;
   display: flex;
+  cursor: pointer;
 }
 
 .color-dot {

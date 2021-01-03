@@ -1,8 +1,12 @@
 <template>
   <div class="container">
-    <div>
-      <h1 class="title">flowers-store</h1>
-      <flower-card />
+    <div class="single-flowers-container">
+      <flower-card
+        v-for="flower in flowers"
+        :key="flower.id"
+        v-bind="flower"
+        class="flower-card"
+      />
     </div>
   </div>
 </template>
@@ -13,10 +17,73 @@ export default {
   components: {
     FlowerCard,
   },
+  data() {
+    return {
+      flowers: [
+        {
+          id: 1,
+          title: 'Роза',
+          price: 79,
+          originalPrice: 140,
+          imageUrl: require('../assets/images/Rose.png'),
+        },
+        {
+          id: 2,
+          title: 'Тюльпан',
+          price: 59,
+          originalPrice: 130,
+          imageUrl: require('../assets/images/Tulip.png'),
+        },
+        {
+          id: 3,
+          title: 'Лилия',
+          price: 99,
+          originalPrice: 160,
+          imageUrl: require('../assets/images/Lilly.png'),
+        },
+        {
+          id: 4,
+          title: 'Гербера',
+          price: 55,
+          originalPrice: 100,
+          imageUrl: require('../assets/images/Herber.png'),
+        },
+        {
+          id: 5,
+          title: 'Пион',
+          price: 129,
+          originalPrice: 200,
+          imageUrl: require('../assets/images/Pion.png'),
+        },
+        {
+          id: 1,
+          title: 'Гвоздика',
+          price: 79,
+          originalPrice: 130,
+          imageUrl: require('../assets/images/Gvozdika.png'),
+        },
+      ],
+    }
+  },
 }
 </script>
 
 <style>
+@font-face {
+  font-family: 'Gilroy-Regular';
+  src: url(../assets/fonts/Gilroy-Regular.woff2);
+}
+
+body {
+  font-family: 'Gilroy-Regular';
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.flower-card {
+  margin: 10px;
+}
+
 .container FlowerCard {
   margin: 0 auto;
   min-height: 100vh;
@@ -46,5 +113,11 @@ export default {
 
 .links {
   padding-top: 15px;
+}
+
+.single-flowers-container {
+  display: flex;
+  flex-basis: max-content;
+  gap: 16px;
 }
 </style>
