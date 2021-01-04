@@ -38,6 +38,63 @@
   </div>
 </template>
 
+<script>
+import AddToCartButton from './AddToCartButton.vue'
+import QuantityChanger from './QuantityChanger.vue'
+import FlowerColorPicker from './FlowerColorPicker.vue'
+
+export default {
+  components: {
+    AddToCartButton,
+    QuantityChanger,
+    FlowerColorPicker,
+  },
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+    price: {
+      type: Number,
+      required: true,
+    },
+    originalPrice: {
+      type: Number,
+      default: 0,
+    },
+    imageUrl: {
+      type: String,
+      required: true,
+    },
+    colors: {
+      type: Array,
+      required: true,
+    },
+  },
+  data() {
+    return {
+      quantityValue: 0,
+    }
+  },
+  computed: {
+    showAddToCartButton() {
+      return this.quantityValue <= 0
+    },
+  },
+  methods: {
+    onAddToCart() {
+      this.onIncrementQuantity()
+    },
+    onIncrementQuantity() {
+      this.quantityValue += 1
+    },
+    onDecrementQuantity() {
+      this.quantityValue -= 1
+    },
+  },
+}
+</script>
+
 <style>
 .shop-item-box {
   background-repeat: no-repeat;
@@ -105,61 +162,3 @@
   line-height: 130%;
 }
 </style>
-
-<script>
-import Vue from 'vue'
-import AddToCartButton from './AddToCartButton.vue'
-import QuantityChanger from './QuantityChanger.vue'
-import FlowerColorPicker from './FlowerColorPicker.vue'
-
-export default Vue.extend({
-  components: {
-    AddToCartButton,
-    QuantityChanger,
-    FlowerColorPicker,
-  },
-  props: {
-    title: {
-      type: String,
-      required: true,
-    },
-    price: {
-      type: Number,
-      required: true,
-    },
-    originalPrice: {
-      type: Number,
-      default: 0,
-    },
-    imageUrl: {
-      type: String,
-      required: true,
-    },
-    colors: {
-      type: Array,
-      required: true,
-    },
-  },
-  data() {
-    return {
-      quantityValue: 0,
-    }
-  },
-  computed: {
-    showAddToCartButton() {
-      return this.quantityValue <= 0
-    },
-  },
-  methods: {
-    onAddToCart() {
-      this.onIncrementQuantity()
-    },
-    onIncrementQuantity() {
-      this.quantityValue += 1
-    },
-    onDecrementQuantity() {
-      this.quantityValue -= 1
-    },
-  },
-})
-</script>

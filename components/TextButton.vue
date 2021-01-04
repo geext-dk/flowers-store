@@ -8,6 +8,16 @@
   </button>
 </template>
 
+<script>
+export default {
+  methods: {
+    onButtonClicked() {
+      this.$emit('click')
+    },
+  },
+}
+</script>
+
 <style>
 .btn {
   all: unset;
@@ -43,13 +53,3 @@
   background-color: #5297d7;
 }
 </style>
-
-<script>
-export default {
-  methods: {
-    onButtonClicked() {
-      this.$emit('click')
-    },
-  },
-}
-</script>

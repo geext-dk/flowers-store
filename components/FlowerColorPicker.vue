@@ -1,20 +1,5 @@
 <template>
   <div class="flower-color-picker">
-    <svg
-      aria-hidden="true"
-      style="position: absolute; width: 0; height: 0; overflow: hidden"
-      version="1.1"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
-    >
-      <defs>
-        <symbol id="icon-arrow-down-btn" viewBox="0 0 32 32">
-          <path
-            d="M15.394 18.061l-5.394-5.394c-0.368-0.368-0.965-0.368-1.333 0s-0.368 0.965 0 1.333l6 6c0.736 0.736 1.93 0.736 2.667 0l6-6c0.368-0.368 0.368-0.965 0-1.333s-0.965-0.368-1.333 0l-5.394 5.394c-0.335 0.335-0.877 0.335-1.212 0z"
-          ></path>
-        </symbol>
-      </defs>
-    </svg>
     <div class="flower-color-picker-grid">
       <div
         v-for="(color, index) in colorsDisplay"
@@ -31,15 +16,13 @@
     >
       {{ showAllColors ? 'скрыть все цвета' : 'показать все цвета' }}
       <template v-slot:icon>
-        <svg
+        <icon-arrow-down
           :class="{
             'icon-arrow-down-btn': !showAllColors,
             'icon-arrow-up-btn': showAllColors,
           }"
           role="presentation"
-        >
-          <use xlink:href="#icon-arrow-down-btn" />
-        </svg>
+        />
       </template>
     </text-button>
   </div>
@@ -47,10 +30,12 @@
 
 <script>
 import TextButton from './TextButton.vue'
+import IconArrowDown from './icons/IconArrowDown.vue'
 
 export default {
   components: {
     TextButton,
+    IconArrowDown,
   },
   props: {
     colors: {
