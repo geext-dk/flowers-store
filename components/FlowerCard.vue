@@ -7,7 +7,10 @@
     <div class="shop-item-information">
       <div>
         <div class="text-common shop-item-title">{{ title }}</div>
-        <flower-color-picker class="shop-item-color-dots"></flower-color-picker>
+        <flower-color-picker
+          :colors="colors"
+          class="shop-item-color-dots"
+        ></flower-color-picker>
       </div>
       <div class="shop-item-price-box">
         <div class="shop-item-price">
@@ -130,6 +133,10 @@ export default Vue.extend({
     },
     imageUrl: {
       type: String,
+      required: true,
+    },
+    colors: {
+      type: Array,
       required: true,
     },
   },

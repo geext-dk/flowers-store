@@ -26,6 +26,23 @@ export default {
           price: 79,
           originalPrice: 140,
           imageUrl: require('../assets/images/Rose.png'),
+          colors: [
+            {
+              color: '#ed488e',
+            },
+            {
+              color: '#803656',
+            },
+            {
+              color: '#D490C1',
+            },
+            {
+              color: '#A11639',
+            },
+            {
+              color: '#AB426D',
+            },
+          ],
         },
         {
           id: 2,
@@ -33,6 +50,41 @@ export default {
           price: 59,
           originalPrice: 130,
           imageUrl: require('../assets/images/Tulip.png'),
+          colors: [
+            {
+              color: '#c0165d',
+            },
+            {
+              color: '#782F46',
+            },
+            {
+              color: '#ED7A94',
+            },
+            {
+              color: '#DC8FAB',
+            },
+            {
+              color: '#FCBDDE',
+            },
+            {
+              color: '#E1B08C',
+            },
+            {
+              color: '#E1B08C',
+            },
+            {
+              color: '#858AC9',
+            },
+            {
+              color: '#6C8BE4',
+            },
+            {
+              color: '#90C8FC',
+            },
+            {
+              color: '#E3D3D0',
+            },
+          ],
         },
         {
           id: 3,
@@ -40,6 +92,41 @@ export default {
           price: 99,
           originalPrice: 160,
           imageUrl: require('../assets/images/Lilly.png'),
+          colors: [
+            {
+              color: '#c0165d',
+            },
+            {
+              color: '#782F46',
+            },
+            {
+              color: '#ED7A94',
+            },
+            {
+              color: '#DC8FAB',
+            },
+            {
+              color: '#FCBDDE',
+            },
+            {
+              color: '#E1B08C',
+            },
+            {
+              color: '#E1B08C',
+            },
+            {
+              color: '#858AC9',
+            },
+            {
+              color: '#6C8BE4',
+            },
+            {
+              color: '#90C8FC',
+            },
+            {
+              color: '#E3D3D0',
+            },
+          ],
         },
         {
           id: 4,
@@ -47,6 +134,17 @@ export default {
           price: 55,
           originalPrice: 100,
           imageUrl: require('../assets/images/Herber.png'),
+          colors: [
+            {
+              color: '#d8afa7',
+            },
+            {
+              color: '#E3D7D6',
+            },
+            {
+              color: '#E3D7D6',
+            },
+          ],
         },
         {
           id: 5,
@@ -54,6 +152,17 @@ export default {
           price: 129,
           originalPrice: 200,
           imageUrl: require('../assets/images/Pion.png'),
+          colors: [
+            {
+              color: '#fd90be',
+            },
+            {
+              color: '#AB3565',
+            },
+            {
+              color: '#FED4EE',
+            },
+          ],
         },
         {
           id: 1,
@@ -61,6 +170,23 @@ export default {
           price: 79,
           originalPrice: 130,
           imageUrl: require('../assets/images/Gvozdika.png'),
+          colors: [
+            {
+              color: '#e7d39b',
+            },
+            {
+              color: '#E4DD9C',
+            },
+            {
+              color: '#C18A5C',
+            },
+            {
+              color: '#A11639',
+            },
+            {
+              color: '#AB426D',
+            },
+          ],
         },
       ],
     }
@@ -78,10 +204,6 @@ body {
   font-family: 'Gilroy-Regular';
   font-size: 16px;
   box-sizing: border-box;
-}
-
-.flower-card {
-  margin: 10px;
 }
 
 .container FlowerCard {

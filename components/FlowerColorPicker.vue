@@ -16,8 +16,12 @@
       </defs>
     </svg>
     <div class="flower-color-picker-grid">
-      <div v-for="color in colorsDisplay" :key="color.id" class="color-dot-box">
-        <div class="color-dot"></div>
+      <div
+        v-for="(color, index) in colorsDisplay"
+        :key="`color-${index}`"
+        class="color-dot-box"
+      >
+        <div :style="{ backgroundColor: color.color }" class="color-dot"></div>
       </div>
     </div>
     <text-button
@@ -40,6 +44,44 @@
     </text-button>
   </div>
 </template>
+
+<script>
+import TextButton from './TextButton.vue'
+
+export default {
+  components: {
+    TextButton,
+  },
+  props: {
+    colors: {
+      type: Array,
+      required: true,
+    },
+  },
+  data() {
+    return {
+      showAllColors: false,
+    }
+  },
+
+  computed: {
+    fitsInOneLine() {
+      return this.colors.length <= 6
+    },
+    colorsSingleLine() {
+      return this.fitsInOneLine ? this.colors : this.colors.slice(0, 6)
+    },
+    colorsDisplay() {
+      return this.showAllColors ? this.colors : this.colorsSingleLine
+    },
+  },
+  methods: {
+    onShowAllColorsClicked() {
+      this.showAllColors = !this.showAllColors
+    },
+  },
+}
+</script>
 
 <style>
 .flower-color-picker-grid {
@@ -78,44 +120,6 @@
   width: 24px;
   height: 24px;
   border-radius: 100%;
-  background-color: #c4c4c4;
   display: inline-block;
 }
 </style>
-
-<script>
-import TextButton from './TextButton.vue'
-
-export default {
-  components: {
-    TextButton,
-  },
-  data() {
-    return {
-      colors: Array.from(new Array(11).keys()).map((elem) => {
-        return {
-          id: elem,
-        }
-      }),
-      showAllColors: false,
-    }
-  },
-
-  computed: {
-    fitsInOneLine() {
-      return this.colors.length <= 6
-    },
-    colorsSingleLine() {
-      return this.fitsInOneLine ? this.colors : this.colors.slice(0, 6)
-    },
-    colorsDisplay() {
-      return this.showAllColors ? this.colors : this.colorsSingleLine
-    },
-  },
-  methods: {
-    onShowAllColorsClicked() {
-      this.showAllColors = !this.showAllColors
-    },
-  },
-}
-</script>
