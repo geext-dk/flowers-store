@@ -36,10 +36,11 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .shop-item-add-to-cart {
   all: unset;
   cursor: pointer;
+  user-select: none;
 }
 
 .shop-item-add-to-cart svg {

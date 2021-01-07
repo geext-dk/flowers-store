@@ -15,7 +15,7 @@
       @click="onShowAllColorsClicked()"
     >
       {{ showAllColors ? 'скрыть все цвета' : 'показать все цвета' }}
-      <template v-slot:icon>
+      <template v-slot:right-icon>
         <icon-arrow-down
           :class="{
             'icon-arrow-down-btn': !showAllColors,
@@ -68,7 +68,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .flower-color-picker-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, 32px);

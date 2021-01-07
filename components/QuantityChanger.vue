@@ -80,6 +80,7 @@ export default {
   height: 32px;
   grid-template-columns: auto auto auto;
   justify-content: space-between;
+  user-select: none;
 }
 
 .quantity-value {

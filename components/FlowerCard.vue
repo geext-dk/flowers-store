@@ -95,7 +95,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .shop-item-box {
   background-repeat: no-repeat;
   background-size: 100% auto;
